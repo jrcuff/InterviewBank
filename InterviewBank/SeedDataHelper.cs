@@ -10,6 +10,9 @@ public static class SeedDataHelper {
         {
             var context = scope.ServiceProvider.GetRequiredService<BankDbContext>();
             context.Database.Migrate();
+            
+            context.Accounts.Add(new Account() { AccountNumber = "smn4592", BIN = "004", ClientId = "1122943" });
+            context.SaveChanges();
         }
         return app;
     }
